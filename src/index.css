@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* --- TEMA TERANG SPIDR --- */
+    --background: 145 20% 98%; /* Putih bersih dengan sedikit rona hijau */
+    --foreground: 160 30% 10%; /* Teks hijau hutan sangat gelap */
+
+    --card: 0 0% 100%; /* Kartu putih bersih */
+    --card-foreground: 160 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 30% 15%;
+
+    /* Warna Hijau Utama SPIDR Tetap Dipertahankan */
+    --primary: 145 65% 38%; 
+    --primary-foreground: 145 20% 98%;
+
+    --secondary: 145 20% 94%; 
+    --secondary-foreground: 145 65% 20%;
+
+    --muted: 145 10% 94%;
+    --muted-foreground: 160 10% 45%;
+
+    --accent: 145 65% 38%;
+    --accent-foreground: 145 20% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 145 20% 90%; 
+    --input: 145 20% 90%;
+    --ring: 145 65% 38%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens untuk indikator status */
+    --warning: 40 90% 50%;
+    --warning-foreground: 40 10% 10%;
+    --success: 145 65% 38%;
+    --success-foreground: 0 0% 100%;
+    --card-hover: 145 20% 96%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    /* Menambahkan background pattern langsung ke body */
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    
+    /* Background SPIDR Tech: Campuran grid halus dan pendaran hijau */
+    background-image: 
+      radial-gradient(circle at 0% 0%, hsla(145, 65%, 38%, 0.08) 0%, transparent 40%),
+      linear-gradient(to right, hsla(145, 65%, 38%, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, hsla(145, 65%, 38%, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+    background-attachment: fixed;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  /* Glow yang lebih soft untuk tema terang */
+  .glow-green {
+    box-shadow: 0 0 20px hsl(145 65% 38% / 0.1), 0 0 40px hsl(145 65% 38% / 0.03);
+  }
+
+  .glow-green-strong {
+    box-shadow: 0 4px 15px hsl(145 65% 38% / 0.2);
+  }
+
+  /* Efek Glassmorphism untuk kartu agar background grid tetap terlihat samar */
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border-white/20;
+  }
+
+  .grid-pattern {
+    background-image: 
+      linear-gradient(hsl(145 65% 38% / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(145 65% 38% / 0.08) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
